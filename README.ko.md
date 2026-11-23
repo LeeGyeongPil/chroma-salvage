@@ -34,7 +34,7 @@ uv run chroma-salvage --version
 출력:
 
 ```text
-chroma-salvage 0.1.0
+chroma-salvage 0.1.1
 ```
 
 명령으로 설치하려면 `uv tool install git+https://github.com/LeeGyeongPil/chroma-salvage` 를 실행합니다. 이 README 의 명령은 clone 한 폴더에서 `uv run` 으로 실행해 확인했습니다.

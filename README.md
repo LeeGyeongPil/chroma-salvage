@@ -34,7 +34,7 @@ uv run chroma-salvage --version
 Output:
 
 ```text
-chroma-salvage 0.1.0
+chroma-salvage 0.1.1
 ```
 
 To install it as a command, run `uv tool install git+https://github.com/LeeGyeongPil/chroma-salvage`. The commands in this README were run from a clone with `uv run`.

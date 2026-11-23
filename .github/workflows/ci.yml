@@ -9,13 +9,20 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
         python: ["3.10", "3.12", "3.13"]
+    env:
+      # use uv's own CPython builds (same as local runs), never the runner's system Python
+      UV_PYTHON_PREFERENCE: only-managed
     steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v7
+      # both actions run on Node 24 (Node 20 was removed from the hosted runners)
+      - uses: actions/checkout@v6
+      - uses: astral-sh/setup-uv@v10.4.0
+        with:
+          version: "0.13.9"   # the uv that checked uv.lock with --locked
       - run: uv python install ${{ matrix.python }}
       - run: uv sync --locked --python ${{ matrix.python }}
-      - run: uv run --python ${{ matrix.python }} pytest -q
+      - run: uv run --locked --python ${{ matrix.python }} pytest -q

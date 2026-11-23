@@ -1,6 +1,6 @@
 [project]
 name = "chroma-salvage"
-version = "0.1.0"
+version = "0.1.1"
 description = "Read a Chroma persist folder without chromadb: find out which version wrote it and export ids, documents, metadata and embeddings as JSONL. Read-only, standard library only."
 readme = "README.md"
 license = "MIT"
