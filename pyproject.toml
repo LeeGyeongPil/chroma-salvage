@@ -1,0 +1,46 @@
+[project]
+name = "chroma-salvage"
+version = "0.1.0"
+description = "Read a Chroma persist folder without chromadb: find out which version wrote it and export ids, documents, metadata and embeddings as JSONL. Read-only, standard library only."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = []
+keywords = ["chroma", "chromadb", "vector-database", "backup", "export", "migration", "hnsw"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Database",
+    "Topic :: System :: Archiving :: Backup",
+]
+
+[project.urls]
+Homepage = "https://github.com/LeeGyeongPil/chroma-salvage"
+Issues = "https://github.com/LeeGyeongPil/chroma-salvage/issues"
+Changelog = "https://github.com/LeeGyeongPil/chroma-salvage/blob/main/CHANGELOG.md"
+
+[project.scripts]
+chroma-salvage = "chroma_salvage.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/chroma_salvage"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "tools", "README.md", "README.ko.md", "CHANGELOG.md", "LICENSE"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
